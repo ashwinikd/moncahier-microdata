@@ -68,7 +68,7 @@ function mon_cahier_comment( $comment, $args, $depth ) {
 		default :
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="comment">
+		<article id="comment-<?php comment_ID(); ?>" class="comment" itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
 			<footer>
 				<div class="comment-author vcard">
 					<?php echo get_avatar( $comment, 40 ); ?>
@@ -80,7 +80,7 @@ function mon_cahier_comment( $comment, $args, $depth ) {
 				<?php endif; ?>
 
 				<div class="comment-meta commentmetadata">
-					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
+					<a itemprop="url" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time itemprop="commentTime" pubdate datetime="<?php comment_time( 'c' ); ?>">
 					<?php
 						/* translators: 1: date, 2: time */
 						printf( __( '%1$s at %2$s', 'mon_cahier' ), get_comment_date(), get_comment_time() ); ?>
@@ -90,7 +90,7 @@ function mon_cahier_comment( $comment, $args, $depth ) {
 				</div><!-- .comment-meta .commentmetadata -->
 			</footer>
 
-			<div class="comment-content"><?php comment_text(); ?></div>
+			<div class="comment-content" itemprop="commentText"><?php comment_text(); ?></div>
 
 			<div class="reply">
 				<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
@@ -110,7 +110,7 @@ if ( ! function_exists( 'mon_cahier_posted_on' ) ) :
  * @since mon_cahier 1.0
  */
 function mon_cahier_posted_on() {
-	printf( __( '<time class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'mon_cahier' ),
+	printf( __( '<time itemprop="datePublished" class="entry-date" datetime="%3$s" pubdate>%4$s</time><span class="byline"> by <span itemprop="author" itemscope itemtype="http://schema.org/Person" class="author vcard"><a itemprop="url" class="url fn n" href="%5$s" title="%6$s" rel="author"><span itemprop="name">%7$s</span></a></span></span>', 'mon_cahier' ),
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),

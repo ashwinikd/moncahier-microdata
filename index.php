@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-		<div id="primary" class="site-content">
+		<div id="primary" class="site-content" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>

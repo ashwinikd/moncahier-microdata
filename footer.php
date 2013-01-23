@@ -15,9 +15,9 @@
 
 		<div class="site-info">
 			<?php do_action( 'mon_cahier_credits' ); ?>
-			
+
 			<?php echo date('Y'); ?> <?php bloginfo('name'); ?> <span class="sep">|</span> <?php _e( 'Powered by', 'mon_cahier' ); ?> <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'mon_cahier' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'mon_cahier' ); ?>"><?php printf( 'WordPress' ); ?></a> <span class="sep">|</span> <?php _e( 'Theme Mon Cahier by', 'mon_cahier' ); ?> <a href="<?php echo esc_url( __( 'http://bluelimemedia.com/', 'mon_cahier' ) ); ?>" title="<?php esc_attr_e( 'Bluelime Media', 'mon_cahier' ); ?>"><?php printf( 'Bluelime Media' ); ?></a>
-			
+
 
 		</div><!-- .site-info -->
 	</footer><!-- .site-footer .site-footer -->
